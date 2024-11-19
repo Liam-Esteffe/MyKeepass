@@ -1,0 +1,26 @@
+# Fichiers générés par Cargo
+/target/
+
+# Fichiers de configuration de l'éditeur
+.idea/
+/.vscode/
+
+# Fichiers de configuration locaux
+Cargo.lock
+
+# Fichiers temporaires
+*.log
+*.bak
+*.swp
+
+# Fichiers spécifiques à l'IDE
+*.iml
+
+# Cache d'IDE
+*.cache
+
+# Dossier .env (si tu utilises dotenv pour stocker des variables sensibles)
+.env
+
+# Fichiers de test ou autres fichiers générés
+/tests/
