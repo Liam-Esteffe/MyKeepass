@@ -55,8 +55,8 @@ impl PasswordEntryManager {
         let ciphertext = cipher
             .encrypt(&nonce, data.as_bytes())
             .map_err(|_| "Erreur lors du chiffrement.")?;
-        let mut result = base64::encode(nonce.to_vec());
-        result.push_str(":");
+        let mut result = base64::encode(nonce);
+        result.push(':');
         result.push_str(&base64::encode(ciphertext));
         Ok(result)
     }

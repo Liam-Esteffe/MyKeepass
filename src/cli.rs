@@ -2,7 +2,7 @@ use clap::{Arg, Command};
 use dotenv::dotenv;
 use std::env;  // Pour récupérer les variables d'environnement
 use crate::models::password::{PasswordEntryManager, PasswordEntry};  // Importer la struct et les méthodes
-use std::fs::{self, File};
+use std::fs::{File};
 use std::path::Path;
 
 pub fn start() {
@@ -54,7 +54,7 @@ pub fn start() {
         manager.save_to_file(file_path, &master_password).expect("Échec de la sauvegarde des mots de passe");
 
         println!("Mot de passe ajouté : {}, {}, {}", name, username_or_email, password);
-    } else if let Some(_) = matches.subcommand_matches("list") {
+    } else if matches.subcommand_matches("list").is_some() {
         // Charger le gestionnaire de mots de passe
         let manager = PasswordEntryManager::load_from_file(file_path, &master_password).unwrap_or_else(|_| PasswordEntryManager::new());
 
